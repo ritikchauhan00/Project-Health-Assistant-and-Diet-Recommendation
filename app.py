@@ -6,9 +6,9 @@ from openai import OpenAI
 from dotenv import load_dotenv
 #-----------------------LLM----------------------------##
 load_dotenv()
-HF_token=os.getenv("HF_TOKEN")
+HF_TOKEN=os.getenv("HF_TOKEN")
 
-client=OpenAI(base_url="https://router.huggingface.co/v1",api_key=HF_token)
+client=OpenAI(base_url="https://router.huggingface.co/v1",api_key=HF_TOKEN)
 
 
 ##-------------------------LLM-----------------------------------------------------##
