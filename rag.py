@@ -21,7 +21,7 @@ def Create_Rag():
         )
         
         db = FAISS.from_documents(chunks, embedding)
-        db.save_local("vector_db")
+        db.save_local("data")
         return len(chunks)
 
 def load_rag():
@@ -29,6 +29,6 @@ def load_rag():
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={'token': HF_TOKEN}
     )
-    db = FAISS.load_local("vector_db", embedding, allow_dangerous_deserialization=True)
+    db = FAISS.load_local("data", embedding, allow_dangerous_deserialization=True)
     return db
 
