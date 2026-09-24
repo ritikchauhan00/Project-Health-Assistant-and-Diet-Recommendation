@@ -48,7 +48,7 @@ col3.metric("TDEE",f"{tdee} Kcal")
 col4.metric("Calorie Traget",f"{calorie} Kcal")
 
 tab1,tab2=st.tabs(['Diet Recommandation',"Health Assistance"])
-if tab1:
+with tab1:
     if st.button("Recommend Diet"):
         if client:
             with st.spinner("Creating Diet"):
@@ -116,8 +116,8 @@ if tab1:
                     st.markdown(answer)
                 except:
                     st.error("RAG is Not Connected")
-elif tab2:
-    question=st.text_area("Ask About Health",placeholder="eg:Good Source OF Vegeterain Protein")
+with tab2:
+    question=st.text_area("Ask About Health",placeholder="eg:Good Source OF Vegeterain Protein",height=150)
     if st.button("Ask AI"):
         db=load_rag()
         docs=db.similarity_search(question,3)
